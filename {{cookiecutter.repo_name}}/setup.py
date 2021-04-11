@@ -72,14 +72,17 @@ setup(
     keywords='{{ cookiecutter.repo_name }}',
     classifiers=[
         'Development Status :: 3 - Alpha',{% if '2.1' in cookiecutter.django_versions %}
-        'Framework :: Django :: 2.1',{% endif %}
+        'Framework :: Django :: 2.1',{% endif %}{% if '3.1' in cookiecutter.django_versions %}
+        'Framework :: Django :: 3.1',{% endif %}{% if '3.2' in cookiecutter.django_versions %}
+        'Framework :: Django :: 3.2',{% endif %}
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
 )
