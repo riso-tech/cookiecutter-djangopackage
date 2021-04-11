@@ -7,7 +7,7 @@ from invoke import task
 def open_browser(path):
     try:
         from urllib import pathname2url
-    except:
+    except Exception:
         from urllib.request import pathname2url
     webbrowser.open("file://" + pathname2url(os.path.abspath(path)))
 
@@ -103,7 +103,7 @@ def release(c, bumpsize=''):
     import {{ cookiecutter.repo_name|replace('-', '_') }}
     c.run("python setup.py sdist bdist_wheel")
     c.run("twine upload dist/*")
-
-    c.run('git tag -a {version} -m "New version: {version}"'.format(version={{ cookiecutter.repo_name|replace('-', '_') }}.__version__))
+    version = {{ cookiecutter.repo_name|replace('-', '_') }}.__version__
+    c.run(F'git tag -a {version} -m "New version: {version}"')
     c.run("git push --tags")
     c.run("git push origin master")
